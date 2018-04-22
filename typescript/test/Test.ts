@@ -15,4 +15,5 @@ export default class Test extends cc.Component {
         this.label.string = this.text;
     }
 
+
 }

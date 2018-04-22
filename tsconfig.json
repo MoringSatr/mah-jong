@@ -11,7 +11,7 @@
     "allowJs": true,
     "experimentalDecorators": true,
     "skipLibCheck": true,
-    "outDir": "assets/script"
+    "outDir": "assets/script/",
   },
   "include": [
     "typescript/**/*"
