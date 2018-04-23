@@ -2,13 +2,13 @@ const appliactionConfig = require("../../config/application.json");
 
 export class Config {
 
-    private static _instance: Config;
+    private static instance: Config;
 
     public static getInstance(): Config {
-        if (this._instance == null) {
-            this._instance = new Config();
+        if (this.instance == null) {
+            this.instance = new Config();
         }
-        return this._instance;
+        return this.instance;
     }
 
     private constructor() {

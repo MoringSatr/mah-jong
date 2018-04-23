@@ -5,10 +5,10 @@ var Config = /** @class */ (function () {
     function Config() {
     }
     Config.getInstance = function () {
-        if (this._instance == null) {
-            this._instance = new Config();
+        if (this.instance == null) {
+            this.instance = new Config();
         }
-        return this._instance;
+        return this.instance;
     };
     Config.prototype.read = function (data) {
         cc.log("Config read data : ", data);
