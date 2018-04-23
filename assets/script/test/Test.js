@@ -27,6 +27,7 @@ var Test = /** @class */ (function (_super) {
     Test.prototype.start = function () {
         this.text = "liu bowen";
         this.label.string = this.text;
+        cc.loader.loadRes("config/application.yml");
     };
     __decorate([
         property(cc.Label)
