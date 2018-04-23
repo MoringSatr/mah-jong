@@ -16,7 +16,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var TestEvent_1 = require("./event/TestEvent");
+var EventListeners_1 = require("../common/event/EventListeners");
+var TestListener_1 = require("./listener/TestListener");
+var Config_1 = require("../config/Config");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
+var listeners = EventListeners_1.EventListeners.getInstance();
 var Test = /** @class */ (function (_super) {
     __extends(Test, _super);
     function Test() {
@@ -27,7 +32,11 @@ var Test = /** @class */ (function (_super) {
     Test.prototype.start = function () {
         this.text = "liu bowen";
         this.label.string = this.text;
-        cc.loader.loadRes("config/application.yml");
+        cc.loader.loadRes("config/application.json");
+        var testEvent = new TestEvent_1.TestEvent("liubowen", 24);
+        listeners.addListener(new TestListener_1.TestListener());
+        listeners.notify(testEvent);
+        Config_1.Config.getInstance().read(null);
     };
     __decorate([
         property(cc.Label)

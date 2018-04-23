@@ -1,4 +1,6 @@
-export default class Config {
+const appliactionConfig = require("../../config/application.json");
+
+export class Config {
 
     private static _instance: Config;
 
@@ -15,6 +17,7 @@ export default class Config {
 
     public read(data: JSON): void {
         cc.log("Config read data : ", data);
+        cc.log("appliactionConfig : ", appliactionConfig);
     }
 
 }

@@ -1,7 +1,10 @@
-import {EventCode} from "../common/event/EventCode";
-import {Event} from "../common/event/Event";
+import {TestEvent} from "./event/TestEvent";
+import {EventListeners} from "../common/event/EventListeners";
+import {TestListener} from "./listener/TestListener";
+import {Config} from "../config/Config";
 
 const {ccclass, property} = cc._decorator;
+const listeners: EventListeners = EventListeners.getInstance();
 
 @ccclass
 export default class Test extends cc.Component {
@@ -18,7 +21,15 @@ export default class Test extends cc.Component {
         this.label.string = this.text;
 
 
-        cc.loader.loadRes("config/application.yml");
+        cc.loader.loadRes("config/application.json");
+
+        let testEvent = new TestEvent("liubowen", 24);
+        listeners.addListener(new TestListener());
+
+        listeners.notify(testEvent);
+
+        Config.getInstance().read(null);
+
     }
 
 

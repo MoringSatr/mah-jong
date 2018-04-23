@@ -14,8 +14,11 @@ var Event_1 = require("../../common/event/Event");
 var EventCode_1 = require("../../common/event/EventCode");
 var TestEvent = /** @class */ (function (_super) {
     __extends(TestEvent, _super);
-    function TestEvent() {
-        return _super.call(this, EventCode_1.EventCode.event_1) || this;
+    function TestEvent(name, age) {
+        var _this = _super.call(this, EventCode_1.EventCode.event_1) || this;
+        _this.name = name;
+        _this.age = age;
+        return _this;
     }
     return TestEvent;
 }(Event_1.Event));

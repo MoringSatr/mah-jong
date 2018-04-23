@@ -10,6 +10,7 @@ export class TestListener extends EventListener {
     }
 
     onEvent(event: Event): void {
-        let testEvent: TestEvent = <TestEvent>event;
+        let testEvent: TestEvent = Event.cast(event);
+        cc.log("testEvent : ", JSON.stringify(testEvent));
     }
 }

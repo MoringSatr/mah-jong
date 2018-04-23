@@ -12,8 +12,8 @@ export abstract class Event {
         return this._eventType;
     }
 
-    // public cast<T extends Event>(): T {
-    //     return <T>this.cast();
-    // }
+    public static cast<T extends Event>(event:Event): T {
+        return <T>event;
+    }
 
 }

@@ -11,6 +11,9 @@ var Event = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    Event.cast = function (event) {
+        return event;
+    };
     return Event;
 }());
 exports.Event = Event;

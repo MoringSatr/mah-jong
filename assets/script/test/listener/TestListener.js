@@ -12,13 +12,15 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var EventListener_1 = require("../../common/event/EventListener");
 var EventCode_1 = require("../../common/event/EventCode");
+var Event_1 = require("../../common/event/Event");
 var TestListener = /** @class */ (function (_super) {
     __extends(TestListener, _super);
     function TestListener() {
         return _super.call(this, EventCode_1.EventCode.event_1) || this;
     }
     TestListener.prototype.onEvent = function (event) {
-        var testEvent = event;
+        var testEvent = Event_1.Event.cast(event);
+        cc.log("testEvent : ", JSON.stringify(testEvent));
     };
     return TestListener;
 }(EventListener_1.EventListener));

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var appliactionConfig = require("../../config/application.json");
 var Config = /** @class */ (function () {
     function Config() {
     }
@@ -11,7 +12,8 @@ var Config = /** @class */ (function () {
     };
     Config.prototype.read = function (data) {
         cc.log("Config read data : ", data);
+        cc.log("appliactionConfig : ", appliactionConfig);
     };
     return Config;
 }());
-exports.default = Config;
+exports.Config = Config;
