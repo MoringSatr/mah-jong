@@ -1,4 +1,4 @@
-import {EventListener} from "../../common/event/EventListener";
+import {EventListener} from "../../common/event/listener/EventListener";
 import {TestEvent} from "../event/TestEvent";
 import {EventCode} from "../../common/event/EventCode";
 import {Event} from "../../common/event/Event";

@@ -1,3 +1,6 @@
+/**
+ * 事件号
+ */
 export enum EventCode {
 
     event_1 = 10001,

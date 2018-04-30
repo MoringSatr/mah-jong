@@ -17,11 +17,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var TestEvent_1 = require("./event/TestEvent");
-var EventListeners_1 = require("../common/event/EventListeners");
+var EventListenerManager_1 = require("../common/event/listener/EventListenerManager");
 var TestListener_1 = require("./listener/TestListener");
 var Config_1 = require("../config/Config");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var listeners = EventListeners_1.EventListeners.getInstance();
+var listeners = EventListenerManager_1.EventListenerManager.getInstance();
 var Test = /** @class */ (function (_super) {
     __extends(Test, _super);
     function Test() {
@@ -49,4 +49,4 @@ var Test = /** @class */ (function (_super) {
     ], Test);
     return Test;
 }(cc.Component));
-exports.default = Test;
+exports.Test = Test;

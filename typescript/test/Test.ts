@@ -1,13 +1,13 @@
 import {TestEvent} from "./event/TestEvent";
-import {EventListeners} from "../common/event/EventListeners";
+import {EventListenerManager} from "../common/event/listener/EventListenerManager";
 import {TestListener} from "./listener/TestListener";
 import {Config} from "../config/Config";
 
 const {ccclass, property} = cc._decorator;
-const listeners: EventListeners = EventListeners.getInstance();
+const listeners: EventListenerManager = EventListenerManager.getInstance();
 
 @ccclass
-export default class Test extends cc.Component {
+export class Test extends cc.Component {
 
     @property(cc.Label)
     label: cc.Label;

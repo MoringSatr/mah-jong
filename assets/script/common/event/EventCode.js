@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * 事件号
+ */
 var EventCode;
 (function (EventCode) {
     EventCode[EventCode["event_1"] = 10001] = "event_1";

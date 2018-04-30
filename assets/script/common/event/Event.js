@@ -1,16 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * 事件抽象类
+ */
 var Event = /** @class */ (function () {
     function Event(eventType) {
-        this._eventType = eventType;
+        this.eventType = eventType;
     }
-    Object.defineProperty(Event.prototype, "eventType", {
-        get: function () {
-            return this._eventType;
-        },
-        enumerable: true,
-        configurable: true
-    });
+    Event.prototype.getEventCode = function () {
+        return this.eventType;
+    };
     Event.cast = function (event) {
         return event;
     };

@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var EventListener_1 = require("../../common/event/EventListener");
+var EventListener_1 = require("../../common/event/listener/EventListener");
 var EventCode_1 = require("../../common/event/EventCode");
 var Event_1 = require("../../common/event/Event");
 var TestListener = /** @class */ (function (_super) {
