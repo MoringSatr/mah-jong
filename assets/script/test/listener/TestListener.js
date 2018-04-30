@@ -16,7 +16,7 @@ var Event_1 = require("../../common/event/Event");
 var TestListener = /** @class */ (function (_super) {
     __extends(TestListener, _super);
     function TestListener() {
-        return _super.call(this, EventCode_1.EventCode.event_1) || this;
+        return _super.call(this, EventCode_1.EventCode.TEST) || this;
     }
     TestListener.prototype.onEvent = function (event) {
         var testEvent = Event_1.Event.cast(event);

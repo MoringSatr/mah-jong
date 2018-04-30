@@ -3,10 +3,10 @@
  */
 export enum EventCode {
 
-    event_1 = 10001,
-    event_2,
+    TEST = 999,
 
-    event_3 = 20001,
-    event_4
+    NET_CONNECT = 100001,
+    NET_DISCONNECT = 100002,
+
 
 }

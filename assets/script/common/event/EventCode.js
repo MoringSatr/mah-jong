@@ -5,8 +5,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 var EventCode;
 (function (EventCode) {
-    EventCode[EventCode["event_1"] = 10001] = "event_1";
-    EventCode[EventCode["event_2"] = 10002] = "event_2";
-    EventCode[EventCode["event_3"] = 20001] = "event_3";
-    EventCode[EventCode["event_4"] = 20002] = "event_4";
+    EventCode[EventCode["TEST"] = 999] = "TEST";
+    EventCode[EventCode["NET_CONNECT"] = 100001] = "NET_CONNECT";
+    EventCode[EventCode["NET_DISCONNECT"] = 100002] = "NET_DISCONNECT";
 })(EventCode = exports.EventCode || (exports.EventCode = {}));

@@ -6,11 +6,12 @@ import {Event} from "../../common/event/Event";
 export class TestListener extends EventListener {
 
     constructor() {
-        super(EventCode.event_1);
+        super(EventCode.TEST);
     }
 
-    onEvent(event: Event): void {
+    public onEvent(event: Event): void {
         let testEvent: TestEvent = Event.cast(event);
         cc.log("testEvent : ", JSON.stringify(testEvent));
     }
+
 }

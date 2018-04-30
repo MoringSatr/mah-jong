@@ -7,7 +7,7 @@ export class TestEvent extends Event {
     public age: number;
 
     constructor(name: string, age: number) {
-        super(EventCode.event_1);
+        super(EventCode.TEST);
         this.name = name;
         this.age = age;
     }

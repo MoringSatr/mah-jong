@@ -1,3 +1,7 @@
+import {CmdHandles} from "../protocol/CmdHandles";
+import {EventNotifyer} from "../event/listener/EventNotifyer";
+import {ConnectEvent} from "./event/ConnectEvent";
+
 /**
  * 长连接通讯(socket.io)
  */
@@ -22,7 +26,9 @@ export class Net {
     }
 
     private connect(data: any): void {
+        cc.info("net connect");
         this.isConnect = true;
+        EventNotifyer.getInstance().notifyEvent(new ConnectEvent());
     }
 
     private disconnect(data: any): void {
@@ -38,7 +44,8 @@ export class Net {
     }
 
     private message(data: any): void {
-
+        //TODO
+        CmdHandles.getInstance().handle(1, data);
     }
 
     private reconnect(data: any): void {
