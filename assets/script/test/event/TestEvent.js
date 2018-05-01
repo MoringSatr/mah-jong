@@ -10,8 +10,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Event_1 = require("../../common/event/Event");
-var EventCode_1 = require("../../common/event/EventCode");
+var Event_1 = require("../../core/common/event/Event");
+var EventCode_1 = require("../../core/common/event/EventCode");
 var TestEvent = /** @class */ (function (_super) {
     __extends(TestEvent, _super);
     function TestEvent(name, age) {

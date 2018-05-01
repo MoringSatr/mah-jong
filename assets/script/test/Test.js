@@ -17,11 +17,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var TestEvent_1 = require("./event/TestEvent");
-var EventListenerManager_1 = require("../common/event/listener/EventListenerManager");
 var TestListener_1 = require("./listener/TestListener");
-var Config_1 = require("../config/Config");
+var TestEventListeners_1 = require("./listener/TestEventListeners");
+var EventNotifyer_1 = require("../core/common/event/listener/EventNotifyer");
+var SocketUtil_1 = require("../core/util/SocketUtil");
+var TestConnectListener_1 = require("./listener/TestConnectListener");
+var HTTPUtil_1 = require("../core/util/HTTPUtil");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var listeners = EventListenerManager_1.EventListenerManager.getInstance();
 var Test = /** @class */ (function (_super) {
     __extends(Test, _super);
     function Test() {
@@ -32,11 +34,19 @@ var Test = /** @class */ (function (_super) {
     Test.prototype.start = function () {
         this.text = "liu bowen";
         this.label.string = this.text;
-        cc.loader.loadRes("config/application.json");
+        this.listeners = new TestEventListeners_1.TestEventListeners().load();
+        this.listeners.regist(new TestListener_1.TestListener());
+        this.listeners.regist(new TestConnectListener_1.TestConnectListener());
         var testEvent = new TestEvent_1.TestEvent("liubowen", 24);
-        listeners.addListener(new TestListener_1.TestListener());
-        listeners.notify(testEvent);
-        Config_1.Config.getInstance().read(null);
+        EventNotifyer_1.EventNotifyer.getInstance().notifyEvent(testEvent);
+        SocketUtil_1.SocketUtil.getInstance().send("assad");
+        HTTPUtil_1.HTTPUtil.post("http://localhost:9099/test/hollo", function (data) {
+            cc.info("wwww", data);
+        });
+    };
+    Test.prototype.onDestroy = function () {
+        this.listeners.unload();
+        _super.prototype.onDestroy.call(this);
     };
     __decorate([
         property(cc.Label)

@@ -1,5 +1,5 @@
-import {Event} from "../../common/event/Event";
-import {EventCode} from "../../common/event/EventCode";
+import {Event} from "../../core/common/event/Event";
+import {EventCode} from "../../core/common/event/EventCode";
 
 export class TestEvent extends Event {
 

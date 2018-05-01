@@ -1,7 +1,7 @@
-import {EventListener} from "../../common/event/listener/EventListener";
+import {EventListener} from "../../core/common/event/listener/EventListener";
 import {TestEvent} from "../event/TestEvent";
-import {EventCode} from "../../common/event/EventCode";
-import {Event} from "../../common/event/Event";
+import {EventCode} from "../../core/common/event/EventCode";
+import {Event} from "../../core/common/event/Event";
 
 export class TestListener extends EventListener {
 
