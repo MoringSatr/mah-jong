@@ -4,6 +4,9 @@ var CmdHandles_1 = require("../protocol/CmdHandles");
 var EventNotifyer_1 = require("../event/listener/EventNotifyer");
 var ConnectEvent_1 = require("./event/ConnectEvent");
 var DisconnectEvent_1 = require("./event/DisconnectEvent");
+var Protocol_1 = require("../../../types/Protocol");
+var Message = Protocol_1.coreProto.Message;
+var ByteBufferUtil_1 = require("../../util/ByteBufferUtil");
 /**
  * 长连接通讯(socket.io)
  */
@@ -38,8 +41,8 @@ var Net = /** @class */ (function () {
         cc.info("net error");
     };
     Net.prototype.message = function (data) {
-        //TODO
-        CmdHandles_1.CmdHandles.getInstance().handle(1, data);
+        var message = Message.decode(data);
+        CmdHandles_1.CmdHandles.getInstance().handle(message);
     };
     Net.prototype.reconnect = function (data) {
         cc.info("net reconnect");
@@ -50,9 +53,10 @@ var Net = /** @class */ (function () {
     Net.prototype.isConnect = function () {
         return this._isConnect;
     };
-    //TODO
     Net.prototype.send = function (message) {
-        this.socket.emit("message", message);
+        var messageBuf = Message.encode(message).finish();
+        var buffer = ByteBufferUtil_1.ByteBufferUtil.uint8ArrayToArrayBuffer(messageBuf);
+        this.socket.emit("message", buffer);
     };
     return Net;
 }());

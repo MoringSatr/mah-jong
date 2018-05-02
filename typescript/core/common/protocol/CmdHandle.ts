@@ -2,6 +2,8 @@
  * 抽象 CMD 协议处理器
  */
 import {CmdHandles} from "./CmdHandles";
+import {coreProto} from "../../../types/Protocol";
+import Message = coreProto.Message;
 
 export abstract class CmdHandle {
 
@@ -21,6 +23,6 @@ export abstract class CmdHandle {
     }
 
     /** 后端参数过来处理 */
-    public abstract handle(data: any): void;
+    public abstract handle(message: Message): void;
 
 }

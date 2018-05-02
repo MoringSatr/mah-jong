@@ -2,6 +2,9 @@ import {CmdHandles} from "../protocol/CmdHandles";
 import {EventNotifyer} from "../event/listener/EventNotifyer";
 import {ConnectEvent} from "./event/ConnectEvent";
 import {DisconnectEvent} from "./event/DisconnectEvent";
+import {coreProto} from "../../../types/Protocol";
+import Message = coreProto.Message;
+import {ByteBufferUtil} from "../../util/ByteBufferUtil";
 
 /**
  * 长连接通讯(socket.io)
@@ -47,8 +50,8 @@ export class Net {
     }
 
     private message(data: any): void {
-        //TODO
-        CmdHandles.getInstance().handle(1, data);
+        let message: Message = Message.decode(data);
+        CmdHandles.getInstance().handle(message);
     }
 
     private reconnect(data: any): void {
@@ -63,9 +66,10 @@ export class Net {
         return this._isConnect;
     }
 
-    //TODO
-    public send(message: any): void {
-        this.socket.emit("message", message);
+    public send(message: Message): void {
+        let messageBuf = Message.encode(message).finish();
+        let buffer: ArrayBuffer = ByteBufferUtil.uint8ArrayToArrayBuffer(messageBuf);
+        this.socket.emit("message", buffer);
     }
 
 }

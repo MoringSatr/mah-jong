@@ -13,13 +13,17 @@ var CmdHandles = /** @class */ (function () {
     CmdHandles.prototype.regist = function (cmdHandle) {
         this.cmdHandles.set(cmdHandle.getCmd(), cmdHandle);
     };
-    CmdHandles.prototype.handle = function (cmd, data) {
-        var handle = this.cmdHandles.get(cmd);
-        if (handle == null) {
-            cc.error("not have handle the cmd , cmd : ", cmd);
+    CmdHandles.prototype.handle = function (message) {
+        if (message == null) {
+            cc.error("CmdHandles handle message is null ");
             return;
         }
-        handle.handle(data);
+        var handle = this.cmdHandles.get(message.cmd);
+        if (handle == null) {
+            cc.error("CmdHandles handle not have handle by the cmd , cmd : ", message.cmd);
+            return;
+        }
+        handle.handle(message);
     };
     return CmdHandles;
 }());

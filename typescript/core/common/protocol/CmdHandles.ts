@@ -2,6 +2,8 @@
  * 模块CMD处理器集合
  */
 import {CmdHandle} from "./CmdHandle";
+import {coreProto} from "../../../types/Protocol";
+import Message = coreProto.Message;
 
 export class CmdHandles {
 
@@ -24,13 +26,17 @@ export class CmdHandles {
         this.cmdHandles.set(cmdHandle.getCmd(), cmdHandle);
     }
 
-    public handle(cmd: number, data: any): void {
-        let handle = this.cmdHandles.get(cmd);
-        if (handle == null) {
-            cc.error("not have handle the cmd , cmd : ", cmd);
+    public handle(message: Message): void {
+        if (message == null) {
+            cc.error("CmdHandles handle message is null ");
             return;
         }
-        handle.handle(data);
+        let handle = this.cmdHandles.get(message.cmd);
+        if (handle == null) {
+            cc.error("CmdHandles handle not have handle by the cmd , cmd : ", message.cmd);
+            return;
+        }
+        handle.handle(message);
     }
 
 }
