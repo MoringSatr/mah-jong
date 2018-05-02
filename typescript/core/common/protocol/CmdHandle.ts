@@ -2,7 +2,7 @@
  * 抽象 CMD 协议处理器
  */
 import {CmdHandles} from "./CmdHandles";
-import {coreProto} from "../../../types/Protocol";
+import {coreProto} from "../../lib/Protocol";
 import Message = coreProto.Message;
 
 export abstract class CmdHandle {

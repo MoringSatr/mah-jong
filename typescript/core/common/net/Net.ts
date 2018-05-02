@@ -2,7 +2,7 @@ import {CmdHandles} from "../protocol/CmdHandles";
 import {EventNotifyer} from "../event/listener/EventNotifyer";
 import {ConnectEvent} from "./event/ConnectEvent";
 import {DisconnectEvent} from "./event/DisconnectEvent";
-import {coreProto} from "../../../types/Protocol";
+import {coreProto} from "../../lib/Protocol";
 import Message = coreProto.Message;
 import {ByteBufferUtil} from "../../util/ByteBufferUtil";
 

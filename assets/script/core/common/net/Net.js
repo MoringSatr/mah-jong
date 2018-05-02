@@ -4,7 +4,7 @@ var CmdHandles_1 = require("../protocol/CmdHandles");
 var EventNotifyer_1 = require("../event/listener/EventNotifyer");
 var ConnectEvent_1 = require("./event/ConnectEvent");
 var DisconnectEvent_1 = require("./event/DisconnectEvent");
-var Protocol_1 = require("../../../types/Protocol");
+var Protocol_1 = require("../../lib/Protocol");
 var Message = Protocol_1.coreProto.Message;
 var ByteBufferUtil_1 = require("../../util/ByteBufferUtil");
 /**

@@ -2,7 +2,7 @@
  * 模块CMD处理器集合
  */
 import {CmdHandle} from "./CmdHandle";
-import {coreProto} from "../../../types/Protocol";
+import {coreProto} from "../../lib/Protocol";
 import Message = coreProto.Message;
 
 export class CmdHandles {
