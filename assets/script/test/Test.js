@@ -22,7 +22,10 @@ var TestEventListeners_1 = require("./listener/TestEventListeners");
 var EventNotifyer_1 = require("../core/common/event/listener/EventNotifyer");
 var SocketUtil_1 = require("../core/util/SocketUtil");
 var TestConnectListener_1 = require("./listener/TestConnectListener");
-var HTTPUtil_1 = require("../core/util/HTTPUtil");
+var Protocol_1 = require("../core/lib/Protocol");
+var Message = Protocol_1.coreProto.Message;
+var LongMsg = Protocol_1.coreProto.LongMsg;
+var UserController_1 = require("../user/UserController");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var Test = /** @class */ (function (_super) {
     __extends(Test, _super);
@@ -39,14 +42,20 @@ var Test = /** @class */ (function (_super) {
         this.listeners.regist(new TestConnectListener_1.TestConnectListener());
         var testEvent = new TestEvent_1.TestEvent("liubowen", 24);
         EventNotifyer_1.EventNotifyer.getInstance().notifyEvent(testEvent);
-        SocketUtil_1.SocketUtil.getInstance().send("assad");
-        HTTPUtil_1.HTTPUtil.post("http://localhost:9099/test/hollo", function (data) {
-            cc.info("wwww", data);
-        });
+        SocketUtil_1.SocketUtil.getInstance().connect();
+        UserController_1.UserController.getInstence().start();
     };
     Test.prototype.onDestroy = function () {
         this.listeners.unload();
         _super.prototype.onDestroy.call(this);
+    };
+    Test.prototype.login = function () {
+        var longMsg = new LongMsg();
+        longMsg.value = 110;
+        var message = new Message();
+        message.cmd = 10001;
+        message.body = LongMsg.encode(longMsg).finish();
+        SocketUtil_1.SocketUtil.getInstance().send(message);
     };
     __decorate([
         property(cc.Label)

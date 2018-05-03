@@ -16,15 +16,23 @@ export abstract class BaseController {
     public start(): void {
         this.listeners.load();
         this.load();
+        this.registCmd();
+        this.registEvent();
     }
 
-    public destory(): void {
+    public onDestroy(): void {
         this.listeners.unload();
         this.unload();
     }
 
     public abstract load(): void;
 
-    public abstract unload(): void;
+    public abstract registEvent(): void;
+
+    public abstract registCmd(): void;
+
+    public unload(): void {
+
+    }
 
 }

@@ -7,13 +7,15 @@ var Constant_1 = require("../common/Constant");
  */
 var SocketUtil = /** @class */ (function () {
     function SocketUtil() {
-        this.net = new Net_1.Net(Constant_1.Constant.SOCKET_URL);
     }
     SocketUtil.getInstance = function () {
         if (this.instance == null) {
             this.instance = new SocketUtil();
         }
         return this.instance;
+    };
+    SocketUtil.prototype.connect = function () {
+        this.net = new Net_1.Net(Constant_1.Constant.SOCKET_URL);
     };
     SocketUtil.prototype.send = function (message) {
         this.net.send(message);

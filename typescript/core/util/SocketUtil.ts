@@ -1,5 +1,7 @@
 import {Net} from "../common/net/Net";
 import {Constant} from "../common/Constant";
+import {coreProto} from "../lib/Protocol";
+import Message = coreProto.Message;
 
 /**
  * 长连接封装
@@ -9,7 +11,6 @@ export class SocketUtil {
     private static instance: SocketUtil;
 
     private constructor() {
-        this.net = new Net(Constant.SOCKET_URL);
     }
 
     public static getInstance(): SocketUtil {
@@ -21,7 +22,11 @@ export class SocketUtil {
 
     private net: Net;
 
-    public send(message: any): void {
+    public connect(): void {
+        this.net = new Net(Constant.SOCKET_URL);
+    }
+
+    public send(message: Message): void {
         this.net.send(message);
     }
 

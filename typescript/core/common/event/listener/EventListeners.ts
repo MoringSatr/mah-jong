@@ -8,7 +8,7 @@ import {EventNotifyer} from "./EventNotifyer";
  * @date:
  * @description: 事件监听器集合，改集合中的监听的事件类型是唯一的
  */
-export abstract class EventListeners {
+export class EventListeners {
 
     private name: string;
     private listeners: Map<EventCode, EventListener>;

@@ -11,11 +11,6 @@ export abstract class CmdHandle {
 
     constructor(cmd: number) {
         this.cmd = cmd;
-        this.init();
-    }
-
-    private init(): void {
-        CmdHandles.getInstance().regist(this);
     }
 
     public getCmd(): number {

@@ -12,10 +12,14 @@ var BaseController = /** @class */ (function () {
     BaseController.prototype.start = function () {
         this.listeners.load();
         this.load();
+        this.registCmd();
+        this.registEvent();
     };
-    BaseController.prototype.destory = function () {
+    BaseController.prototype.onDestroy = function () {
         this.listeners.unload();
         this.unload();
+    };
+    BaseController.prototype.unload = function () {
     };
     return BaseController;
 }());

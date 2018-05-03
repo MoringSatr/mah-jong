@@ -41,7 +41,7 @@ var Net = /** @class */ (function () {
         cc.info("net error");
     };
     Net.prototype.message = function (data) {
-        var message = Message.decode(data);
+        var message = Message.decode(new Uint8Array(data));
         CmdHandles_1.CmdHandles.getInstance().handle(message);
     };
     Net.prototype.reconnect = function (data) {

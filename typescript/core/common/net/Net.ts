@@ -49,8 +49,8 @@ export class Net {
         cc.info("net error");
     }
 
-    private message(data: any): void {
-        let message: Message = Message.decode(data);
+    private message(data: ArrayBuffer): void {
+        let message: Message = Message.decode(new Uint8Array(data));
         CmdHandles.getInstance().handle(message);
     }
 
